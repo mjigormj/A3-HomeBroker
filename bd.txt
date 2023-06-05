@@ -1,0 +1,48 @@
+CREATE TABLE `carteira` (
+  `IDcarteira` int NOT NULL AUTO_INCREMENT,
+  `nmTitulo` varchar(10) NOT NULL,
+  `qtdTitulo` int NOT NULL,
+  `valorPago` double NOT NULL,
+  `fk_IDusuario` int DEFAULT NULL,
+  PRIMARY KEY (`IDcarteira`),
+  KEY `fk_IDusuario` (`fk_IDusuario`),
+  CONSTRAINT `carteira_ibfk_1` FOREIGN KEY (`fk_IDusuario`) REFERENCES `usuario` (`IDusuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO `nicestocksdb`.`carteira`
+(`IDcarteira`,
+`nmTitulo`,
+`qtdTitulo`,
+`valorPago`,
+`fk_IDusuario`)
+VALUES
+(<{IDcarteira: }>,
+<{nmTitulo: }>,
+<{qtdTitulo: }>,
+<{valorPago: }>,
+<{fk_IDusuario: }>);
+
+CREATE TABLE `usuario` (
+  `IDusuario` int NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(30) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `passwd` varchar(20) NOT NULL,
+  `fk_IDcarteira` int DEFAULT NULL,
+  PRIMARY KEY (`IDusuario`),
+  UNIQUE KEY `email` (`email`),
+  KEY `fk_IDcarteira` (`fk_IDcarteira`),
+  CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`fk_IDcarteira`) REFERENCES `carteira` (`IDcarteira`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO `nicestocksdb`.`usuario`
+(`IDusuario`,
+`user_name`,
+`email`,
+`passwd`,
+`fk_IDcarteira`)
+VALUES
+(<{IDusuario: }>,
+<{user_name: }>,
+<{email: }>,
+<{passwd: }>,
+<{fk_IDcarteira: }>);
