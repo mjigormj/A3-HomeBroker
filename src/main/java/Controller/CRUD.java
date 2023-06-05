@@ -42,6 +42,7 @@ public class CRUD {
     }
 
 
+
     //retorna todos os valores da tabela Carteira em um ArrayList
     public static ArrayList<String> returnArrayFromTable() throws SQLException {
         Connection con;
@@ -143,4 +144,12 @@ public class CRUD {
         return thereValue;
     }
 
+    public static void deleteStockFromTable(String stockName, int idUsuario) throws SQLException {
+        Connection con;
+        con = Conector.conect();
+        PreparedStatement stmt = con.prepareStatement("delete from carteira where nmTitulo = '" + stockName + "' AND fk_IDusuario = '" + idUsuario + "';");
+        stmt.executeUpdate();
+        stmt.close();
+        con.close();
+    }
 }
