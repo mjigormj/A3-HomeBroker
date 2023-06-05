@@ -7,8 +7,8 @@ import java.sql.SQLException;
 public class Conector {
     
     private static String pathDB = "jdbc:mysql://localhost/niceStocksDB";
-//    private static String userDB = "root";
-//    private static String passDB = "root";
+    private static String userDB = "root";
+    private static String passDB = "root";
     
     public static Connection conect() throws SQLException{
         
