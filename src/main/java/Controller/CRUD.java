@@ -28,6 +28,20 @@ public class CRUD {
 
     }
 
+    //insere valores na tabela Carteira
+    public static void insertInTableCarteira(String stockName, int qtdStock, Double valorPago, String email) throws SQLException {
+        Connection con;
+        con = Conector.conect();
+        int idUsuario = selectIdUsuario(email);
+        String sql = "insert into carteira(nmTitulo, qtdTitulo, valorPago, fk_IDusuario) values ('" + stockName + "' , " + qtdStock + ", " + valorPago + ", '" +idUsuario+"');";
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.executeUpdate();
+
+        stmt.close();
+        con.close();
+    }
+
+
     public static Integer selectIdUsuario(String email) throws SQLException {
         int idUsuario = 666;
         Connection con;
