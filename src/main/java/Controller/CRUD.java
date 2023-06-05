@@ -41,7 +41,33 @@ public class CRUD {
         con.close();
     }
 
+    //Atualiza os dados da tabela carteira {qtdTitulo, totalPago} somando os valores passados a eles
+public static void updateInTableCarteira(String stockName, int qtdStock, Double valorPago, String email) throws SQLException {
+        Connection con;
+        con = Conector.conect();
+        int idUsuario = selectIdUsuario(email);
+        String query = "select * from carteira where nmTitulo='" + stockName + "' AND fk_IDusuario = '"+ idUsuario +"';";
+        PreparedStatement stmt = con.prepareStatement(query);
+        ResultSet rs = stmt.executeQuery();
 
+        ArrayList<String> qtdTituloBD = new ArrayList();
+        ArrayList<String> valorPagoBD = new ArrayList();
+
+        while (rs.next()) {
+            //System.out.println("titulo: " + rs.getString("qtdTitulo"));
+            qtdTituloBD.add(rs.getString("qtdTitulo"));
+            valorPagoBD.add(rs.getString("valorPago"));
+        }
+        qtdStock += Integer.parseInt(qtdTituloBD.get(0));
+        valorPago += Double.parseDouble(valorPagoBD.get(0));
+
+        String sql = "update carteira set qtdTitulo=" + qtdStock + ", valorPago=" + valorPago + " where nmTitulo ='" + stockName + "' AND fk_IDusuario = "+ idUsuario +";";
+        stmt = con.prepareStatement(sql);
+        stmt.executeUpdate();
+
+        stmt.close();
+        con.close();
+    }
 
     //retorna todos os valores da tabela Carteira em um ArrayList
     public static ArrayList<String> returnArrayFromTable() throws SQLException {
