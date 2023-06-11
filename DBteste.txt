@@ -1,0 +1,17 @@
+CREATE DATABASE nicestocksdb;
+USE nicestocksdb;
+CREATE TABLE carteira (
+  IDcarteira int NOT NULL AUTO_INCREMENT,
+  nmTitulo varchar(10) NOT NULL,
+  qtdTitulo int NOT NULL,
+  valorPago double NOT NULL,
+  fk_IDusuario int DEFAULT NULL,
+  PRIMARY KEY (IDcarteira)
+);
+CREATE TABLE usuario (
+  IDusuario int NOT NULL AUTO_INCREMENT,
+  user_name VARCHAR(50),
+  email VARCHAR(100),
+  passwd varchar(20),
+  PRIMARY KEY (IDusuario)
+);

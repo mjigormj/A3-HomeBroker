@@ -146,6 +146,25 @@ public class LoginCreate extends javax.swing.JFrame {
 
     private void passwdInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwdInputActionPerformed
         String passwd = passwdInput.getText().trim();
+        
+        if (!passwd.matches(".*[!@#$%^&*()].*")) {
+        //caractere especial
+        System.out.println("A senha deve conter pelo menos um caractere especial.");
+        return;
+    }
+    
+    if (!passwd.matches(".*\\d.*")) {
+        //numero
+        System.out.println("A senha deve conter pelo menos um número.");
+        return;
+    }
+    
+    if (!passwd.matches(".*[A-Z].*")) {
+        //maiuscula
+        System.out.println("A senha deve conter pelo menos uma letra maiúscula.");
+        return;
+    }
+        
     }//GEN-LAST:event_passwdInputActionPerformed
 
     private void passwdConfirmInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwdConfirmInputActionPerformed
@@ -179,6 +198,36 @@ public class LoginCreate extends javax.swing.JFrame {
 
     //Methods
     public void criarConta() {
+    try {
+        if (!userNameInput.getText().isEmpty() && !emailInput.getText().isEmpty() && !passwdInput.getText().isEmpty()) {
+            if (emailInput.getText().contains("@")) {
+                String passwd = passwdInput.getText().trim();
+                
+                if (!passwd.matches(".*[!@#$%^&*()].*") && !passwd.matches(".*\\d.*") && !passwd.matches(".*[A-Z].*") ) {
+                    JOptionPane.showMessageDialog(null, "A senha deve conter pelo menos um caractere especial, uma letra maiúscula e um número.", "Erro na senha", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                 
+                if (passwd.equals(passwdConfirmInput.getText())) {
+                    CRUD.insertInTableUsuario(userNameInput.getText(), emailInput.getText(), passwd);
+                    LoginScreen ls = new LoginScreen();
+                    ls.setVisible(true);
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "As senhas digitadas não são iguais", "Erro ao inserir senha", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Insira um email válido", "Erro no campo email", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Verifique se existe algum campo vazio", "Campo vazio", JOptionPane.ERROR_MESSAGE);
+        }
+    } catch (Exception ex) {
+        // Lidar com a exceção adequadamente
+        ex.printStackTrace();
+    }
+}
+   /* public void criarConta() {
         try {
             if (!userNameInput.getText().isEmpty() && !emailInput.getText().isEmpty() && !passwdInput.getText().isEmpty()) {
                 if (emailInput.getText().contains("@")) {
@@ -199,7 +248,7 @@ public class LoginCreate extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println("Erro ao criar usuario");
         }
-    }
+    }*/
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnVoltar;
