@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 
 public class CRUD {
 
-    public static void insertInTableUsuario(String userName, String email, String passwd) throws SQLException {
+    public static boolean insertInTableUsuario(String userName, String email, String passwd) throws SQLException {
         if (!verifyIfExistsInTable("usuario", "email", email)) {
             Connection con;
             con = Conector.conect();
@@ -22,14 +22,16 @@ public class CRUD {
             stmt.close();
             con.close();
             JOptionPane.showMessageDialog(null, "Conta criada com sucesso!");
+            return true;
         } else {
             JOptionPane.showMessageDialog(null, "Já existe uma conta com o email: " + email, "Usuario já cadastrado", JOptionPane.ERROR_MESSAGE);
+            return false;
         }
 
     }
 
     //insere valores na tabela Carteira
-    public static void insertInTableCarteira(String stockName, int qtdStock, Double valorPago, String email) throws SQLException {
+    public static boolean insertInTableCarteira(String stockName, int qtdStock, Double valorPago, String email) throws SQLException {
         Connection con;
         con = Conector.conect();
         int idUsuario = selectIdUsuario(email);
@@ -39,10 +41,11 @@ public class CRUD {
 
         stmt.close();
         con.close();
+        return true;
     }
 
     //Atualiza os dados da tabela carteira {qtdTitulo, totalPago} somando os valores passados a eles
-public static void updateInTableCarteira(String stockName, int qtdStock, Double valorPago, String email) throws SQLException {
+public static boolean updateInTableCarteira(String stockName, int qtdStock, Double valorPago, String email) throws SQLException {
         Connection con;
         con = Conector.conect();
         int idUsuario = selectIdUsuario(email);
@@ -67,6 +70,7 @@ public static void updateInTableCarteira(String stockName, int qtdStock, Double 
 
         stmt.close();
         con.close();
+        return true;
     }
 
     //retorna todos os valores da tabela Carteira em um ArrayList
@@ -170,12 +174,13 @@ public static void updateInTableCarteira(String stockName, int qtdStock, Double 
         return thereValue;
     }
 
-    public static void deleteStockFromTable(String stockName, int idUsuario) throws SQLException {
+    public static boolean deleteStockFromTable(String stockName, int idUsuario) throws SQLException {
         Connection con;
         con = Conector.conect();
         PreparedStatement stmt = con.prepareStatement("delete from carteira where nmTitulo = '" + stockName + "' AND fk_IDusuario = '" + idUsuario + "';");
         stmt.executeUpdate();
         stmt.close();
         con.close();
+        return true;
     }
 }
