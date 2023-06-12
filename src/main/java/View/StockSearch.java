@@ -158,7 +158,7 @@ public class StockSearch extends javax.swing.JFrame {
         try {
             DefaultTableModel val = (DefaultTableModel) stockTable.getModel();
             String stockNome = val.getValueAt(0, 0).toString();
-            String qtdStock = JOptionPane.showInputDialog(stockInput.getText() + "\n Quantidade a ser comprada",1);
+            String qtdStock = JOptionPane.showInputDialog(null, stockInput.getText() + "\n Quantidade: ", "Insira a quantidade a ser comprada", 1);
             int qtdStockInteger = Integer.parseInt(qtdStock);
             String id = CRUD.selectIdUsuario(user.getEmail()).toString();
 
