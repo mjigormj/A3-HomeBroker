@@ -180,7 +180,7 @@ public class StockSearch extends javax.swing.JFrame {
             Logger.getLogger(StockSearch.class.getName()).log(Level.SEVERE, null, ex);
         }
         catch ( Exception e) {
-            JOptionPane.showMessageDialog(null, "DIGITE APENAS NÚEMEROS", "ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Digite apenas números", "Erro", JOptionPane.ERROR_MESSAGE);
 
         }
 
