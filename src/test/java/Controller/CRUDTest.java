@@ -52,18 +52,16 @@ class CRUDTest {
         assertTrue(executou);
     }
     
-//    @Test
-//    public void testReturnStockFromTable() throws SQLException, IOException{
-//        //TODO: WHEN não está funcionando
-//        Mockito.when(doc.getElementsByClass("YMlKec fxKbKc").text()).thenReturn("100");
-//        ArrayList<Stock> result = CRUD.returnStockFromTable(35);
-//
-//        assertTrue(!result.isEmpty());
-//        Stock stock = result.get(0);
-//        assertEquals("Stock Name", stock.getName());
-//        assertEquals(10, stock.getStockQtd());
-//        assertEquals(100.0, stock.getAvgCust(), 0.01);
-//    }
+    @Test
+    public void testReturnStockFromTable() throws SQLException, IOException{
+        //TODO: WHEN não está funcionando
+        ArrayList<Stock> result = CRUD.returnStockFromTable(2);
+        assertTrue(!result.isEmpty());
+        Stock stock = result.get(0);
+        assertEquals("PETR4", stock.getName());
+        assertEquals(5, stock.getStockQtd());
+        assertEquals(30.28, stock.getAvgCust(), 0.01);
+    }
     
     @Test
     public void testSelectIdUsuario() throws SQLException {

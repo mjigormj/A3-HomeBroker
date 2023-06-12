@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS nicestocksdb;
+
 CREATE DATABASE nicestocksdb;
 USE nicestocksdb;
 CREATE TABLE carteira (
@@ -15,3 +17,35 @@ CREATE TABLE usuario (
   passwd varchar(20),
   PRIMARY KEY (IDusuario)
 );
+
+INSERT INTO nicestocksdb.usuario
+(IDusuario,
+user_name,
+email,
+passwd)
+VALUES
+(
+1,
+'adm',
+'adm@mail.com',
+'adm'
+);
+
+INSERT INTO nicestocksdb.carteira
+(IDcarteira,
+nmTitulo,
+qtdTitulo,
+valorPago,
+fk_IDusuario)
+VALUES
+(
+1,
+'PETR4',
+5,
+151.4,
+1
+);
+
+
+SELECT * FROM usuario;
+SELECT * FROM carteira;

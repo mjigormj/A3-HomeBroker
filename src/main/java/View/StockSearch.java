@@ -158,10 +158,11 @@ public class StockSearch extends javax.swing.JFrame {
         try {
             DefaultTableModel val = (DefaultTableModel) stockTable.getModel();
             String stockNome = val.getValueAt(0, 0).toString();
-            String qtdStock = JOptionPane.showInputDialog(stockName + "\n Quantidade a ser comprada", 1);
+            String qtdStock = JOptionPane.showInputDialog(stockInput.getText() + "\n Quantidade a ser comprada",1);
             int qtdStockInteger = Integer.parseInt(qtdStock);
             String id = CRUD.selectIdUsuario(user.getEmail()).toString();
-            
+
+
             String valorPago = JOptionPane.showInputDialog("\n Valor a ser pago R$:", val.getValueAt(0, 1).toString());
             Double valorPagoDouble = Double.parseDouble(valorPago);
             
@@ -180,7 +181,7 @@ public class StockSearch extends javax.swing.JFrame {
             Logger.getLogger(StockSearch.class.getName()).log(Level.SEVERE, null, ex);
         }
         catch ( Exception e) {
-            JOptionPane.showMessageDialog(null, "DIGITE APENAS NÚEMEROS", "ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "DIGITE APENAS NÚMEROS", "ERRO", JOptionPane.ERROR_MESSAGE);
 
         }
 
