@@ -72,6 +72,7 @@ public class LoginScreen extends javax.swing.JFrame {
         getContentPane().add(jLabel3, gridBagConstraints);
 
         btnLogin.setBackground(new java.awt.Color(0, 140, 158));
+        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,6 +88,7 @@ public class LoginScreen extends javax.swing.JFrame {
         getContentPane().add(btnLogin, gridBagConstraints);
 
         btnCreateAccount.setBackground(new java.awt.Color(0, 140, 158));
+        btnCreateAccount.setForeground(new java.awt.Color(255, 255, 255));
         btnCreateAccount.setText("Criar conta");
         btnCreateAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

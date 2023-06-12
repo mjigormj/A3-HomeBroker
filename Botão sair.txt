@@ -1,0 +1,11 @@
+  private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+      
+    LoginScreen novaJanela = new LoginScreen();
+    
+    novaJanela.setVisible(true);
+    
+    dispose();
+    } 
+
+
+
