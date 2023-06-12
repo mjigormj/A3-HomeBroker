@@ -29,13 +29,13 @@ class CRUDTest {
     
     @Test
     public void testInsertInTableUsuario() throws SQLException {
-        assertTrue(crud.insertInTableUsuario("TesteSucesso", "johndoe@TesteSucesso.com", "password123"));
+        assertTrue(crud.insertInTableUsuario("TesteSucesso", "johndoe@example.com", "password123"));
     }
 
     @Test
     public void testInsertInTableUsuario_EmailAlreadyExists() throws SQLException {
         Connection mockConnection = Mockito.mock(Connection.class);
-        assertFalse(crud.insertInTableUsuario("John Doe", "johndoe@example.com", "password123"));
+        assertFalse(crud.insertInTableUsuario("TesteErro", "johndoe@example.com", "password123"));
         Mockito.verify(mockConnection, Mockito.never()).prepareStatement(Mockito.anyString());
         Mockito.verifyNoMoreInteractions(mockConnection);
     }
@@ -54,8 +54,7 @@ class CRUDTest {
     
     @Test
     public void testReturnStockFromTable() throws SQLException, IOException{
-        //TODO: WHEN não está funcionando
-        ArrayList<Stock> result = CRUD.returnStockFromTable(2);
+        ArrayList<Stock> result = CRUD.returnStockFromTable(1);
         assertTrue(!result.isEmpty());
         Stock stock = result.get(0);
         assertEquals("PETR4", stock.getName());
@@ -65,13 +64,13 @@ class CRUDTest {
     
     @Test
     public void testSelectIdUsuario() throws SQLException {
-        int result = CRUD.selectIdUsuario("johndoe@example.com");
-        assertEquals(35, result);
+        int result = CRUD.selectIdUsuario("adm@mail.com");
+        assertEquals(1, result);
     }
     
     @Test
     public void testVerifyIfExistsInTable() throws SQLException {
-        boolean result = CRUD.verifyIfExistsInTable("usuario", "email", "johndoe@TesteSucesso.com");
+        boolean result = CRUD.verifyIfExistsInTable("usuario", "email", "adm@mail.com");
         assertTrue(result);
     }
     
