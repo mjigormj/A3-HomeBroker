@@ -227,7 +227,11 @@ public class StockSearch extends javax.swing.JFrame {
                     }
                     val.addRow(new String[]{stock.getName(), stock.getMarcketValue().toString(), stock.percentVariance(), stock.dayRange()});
                 } catch (NumberFormatException e) {
-                    System.out.println("Entrada invalida");
+                    
+                    JOptionPane.showMessageDialog(null,
+                            stockInput.getText()+" não encontrado \n Tente novamente",
+                            "Erro titulo", JOptionPane.ERROR_MESSAGE);
+                    
                 }
             }
         } catch (IOException ex) {
