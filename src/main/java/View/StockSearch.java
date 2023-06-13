@@ -158,10 +158,11 @@ public class StockSearch extends javax.swing.JFrame {
         try {
             DefaultTableModel val = (DefaultTableModel) stockTable.getModel();
             String stockNome = val.getValueAt(0, 0).toString();
-            String qtdStock = JOptionPane.showInputDialog(stockName + "\n Quantidade a ser comprada", 1);
+            String qtdStock = JOptionPane.showInputDialog(null, stockInput.getText() + "\n Quantidade: ", "Insira a quantidade a ser comprada", 1);
             int qtdStockInteger = Integer.parseInt(qtdStock);
             String id = CRUD.selectIdUsuario(user.getEmail()).toString();
-            
+
+
             String valorPago = JOptionPane.showInputDialog("\n Valor a ser pago R$:", val.getValueAt(0, 1).toString());
             Double valorPagoDouble = Double.parseDouble(valorPago);
             
@@ -181,7 +182,6 @@ public class StockSearch extends javax.swing.JFrame {
         }
         catch ( Exception e) {
             JOptionPane.showMessageDialog(null, "Digite apenas números", "Erro", JOptionPane.ERROR_MESSAGE);
-
         }
 
 
@@ -227,7 +227,11 @@ public class StockSearch extends javax.swing.JFrame {
                     }
                     val.addRow(new String[]{stock.getName(), stock.getMarcketValue().toString(), stock.percentVariance(), stock.dayRange()});
                 } catch (NumberFormatException e) {
-                    System.out.println("Entrada invalida");
+                    
+                    JOptionPane.showMessageDialog(null,
+                            stockInput.getText()+" não encontrado \n Tente novamente",
+                            "Erro titulo", JOptionPane.ERROR_MESSAGE);
+                    
                 }
             }
         } catch (IOException ex) {
