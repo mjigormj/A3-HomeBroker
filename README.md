@@ -30,7 +30,7 @@ Um aplicativo capaz de criar e simular uma carteira de ações sem que seja nece
 
 ## Uso/Exemplos
 
-IGOR VAI ESCREVER ALGUMA COISA AQUI SÓ NÃO LEMBRO OQUE ERA 
+IGOR VAI ESCREVER ALGUMA COISA AQUI 
 
 ## Documentação
 
