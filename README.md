@@ -4,6 +4,14 @@ Um aplicativo capaz de criar e simular uma carteira de ações sem que seja nece
 
 ## Tecnologia de Desenvolvimento
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white">
+  <img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white">
+  <img src="https://img.shields.io/badge/riotgames-D32936.svg?style=for-the-badge&logo=riotgames&logoColor=white">
+  <img src="https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white">
+  <img src="https://img.shields.io/badge/xbox-%23107C10.svg?style=for-the-badge&logo=xbox&logoColor=white">
+</p>
+
 <p display="inline-block">
   <img width="48" src="src/resources/icons/Netbeans-logo.png">
   <img width="48" src="src/resources/icons/png-clipart-mysql-mysql.png">
@@ -12,9 +20,9 @@ Um aplicativo capaz de criar e simular uma carteira de ações sem que seja nece
 
 ## Autores
 
-- [@Gabriel Furlan Del Poente](https://www.github.com/Furlangit)
-- [@Gabriel Alexandre Pagote de Oliveira](https://www.github.com/gabrielpagote)
-- [@Igor da Cruz Rodrigues da Silva](https://www.github.com/mjigormj)
+- [Gabriel Alexandre Pagote de Oliveira](https://www.github.com/gabrielpagote)
+- [Gabriel Furlan Del Poente](https://www.github.com/Furlangit)
+- [Igor da Cruz Rodrigues da Silva](https://www.github.com/mjigormj)
 
 
 ## Demonstração
