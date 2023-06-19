@@ -6,8 +6,8 @@ Um aplicativo capaz de criar e simular uma carteira de ações sem que seja nece
 
 <p display="inline-block">
   <img width="48" src="src/resources/icons/Netbeans-logo.png">
-  <img width="48" src="src/resources/icons/pngwing.com.png">
   <img width="48" src="src/resources/icons/png-clipart-mysql-mysql.png">
+  <img width="48" src="src/resources/icons/pngwing.com.png">
 </p>
 
 ## Autores
