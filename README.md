@@ -38,14 +38,14 @@ Um aplicativo capaz de criar e simular uma carteira de ações sem que seja nece
 
 ## Execução do projeto
 
-1. Faça o clone do projeto na sua máquina <https://github.com/mjigormj/A3-HomeBroker.git>
+1. Faça o clone do projeto na sua máquina <code>git clone <https://github.com/mjigormj/A3-HomeBroker.git></code>
 
 2. Execute o arquivo SQL "bd.sql" presente dentro da pasta do projeto para a criação do banco de dados e suas tabelas.
 
 3. Configure o arquivo "Conector.Java" para poder acessar o banco de dados criado, setando o caminho, nome de usuário e senha.
 O arquivo pode ser encontrado no seguinte caminho ".../src/main/java/Controller/Conector.Java"
 
-4. Execute o clean install para baixar todas as dependências através da IDE escolhida ou através do terminal com o comando "mvn clean install" 
+4. Execute o clean install para baixar todas as dependências através da IDE escolhida ou através do terminal com o comando <code>mvn clean install</code> 
 
 5. Agora para executar o projeto basta executar o arquivo NiceStocks.java presente no caminho ".../src/main/java/br/com/nicestocks/nicestocks/NiceStocks.java"
 
